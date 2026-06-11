@@ -896,6 +896,16 @@
       flex-shrink: 0;
     }
 
+    .author-avatar-link {
+      display: inline-flex;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .author-avatar-link:hover .author-avatar {
+      transform: translateY(-1px);
+    }
+
     .author-name {
       font-size: 14px;
       color: var(--white);
@@ -1210,8 +1220,8 @@
       </p><br>
       <div class="hero-actions">
         <a href="#work" class="btn-primary">View Projects</a>
-        <a href="https://docs.google.com/document/d/1pq-bLCo2JxX1AyYOlSq6N51jftJvmBn_/edit?usp=sharing&ouid=101214935756366348031&rtpof=true&sd=true"
-          target="_blank" class="btn-ghost">View Resume</a>
+        <a href="https://drive.google.com/file/d/1Ki2lVj354GSSon6Lto5JVoNY9Bn4JDt5/view?usp=drive_link" target="_blank"
+          class="btn-ghost">View Resume</a>
       </div>
 
       <div class="hero-scroll">
@@ -1418,7 +1428,10 @@
         <p class="testimonial-text">Learned core DevOps practices including automation, CI/CD, collaboration, and
           infrastructure management.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">♾️</div>
+          <a class="author-avatar-link" href="certificates/devops Certificate.pdf" target="_blank"
+            rel="noopener noreferrer" aria-label="Open DevOps certificate PDF">
+            <div class="author-avatar">♾️</div>
+          </a>
           <div>
             <p class="author-name">Devops</p>
 
@@ -1430,7 +1443,10 @@
         <p class="testimonial-text">Learned the fundamentals of deploying, monitoring, and managing machine learning
           models in production environments.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">ML</div>
+          <a class="author-avatar-link" href="certificates/MLOps_Certificate.pdf" target="_blank"
+            rel="noopener noreferrer" aria-label="Open MLOps certificate PDF">
+            <div class="author-avatar">ML</div>
+          </a>
           <div>
             <p class="author-name">MLOps</p>
           </div>
@@ -1441,7 +1457,10 @@
         <p class="testimonial-text">Gained hands-on experience in developing and deploying TinyML and edge AI
           applications for embedded devices.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">EI</div>
+          <a class="author-avatar-link" href="certificates/intro to embedded ml certificate.pdf" target="_blank"
+            rel="noopener noreferrer" aria-label="Open Edge Impulse certificate PDF">
+            <div class="author-avatar">EI</div>
+          </a>
           <div>
             <p class="author-name">Edge Impulse</p>
           </div>
@@ -1453,7 +1472,10 @@
         <p class="testimonial-text">Developed proficiency in Python programming for automation, data analysis, and
           software development.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">Py</div>
+          <a class="author-avatar-link" href="certificates/python_certificate.pdf" target="_blank"
+            rel="noopener noreferrer" aria-label="Open Python certificate PDF">
+            <div class="author-avatar">Py</div>
+          </a>
           <div>
             <p class="author-name">python</p>
           </div>
@@ -1465,7 +1487,10 @@
         <p class="testimonial-text">Learned to build cross-platform mobile applications with responsive user interfaces
           using Flutter and Dart.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">F</div>
+          <a class="author-avatar-link" href="certificates/flutter certificate.pdf" target="_blank"
+            rel="noopener noreferrer" aria-label="Open Flutter certificate PDF">
+            <div class="author-avatar">F</div>
+          </a>
           <div>
             <p class="author-name">Flutter</p>
           </div>
