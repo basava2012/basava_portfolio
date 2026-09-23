@@ -1179,6 +1179,193 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ================================
+   PROJECT CARDS
+================================ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: 18px;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.project-card.large {
+  grid-column: span 2;
+  min-height: 430px;
+}
+
+.project-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.7s ease;
+  z-index: -2;
+}
+
+/* Your existing project images/classes */
+.proj-1 {
+  background-image: url("images/tactile-watch.jpg");
+}
+
+.proj-2 {
+  background-image: url("images/jarvis-ai.jpg");
+}
+
+.proj-3 {
+  background-image: url("images/face-recognition.jpg");
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.60) 45%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+  transition: background 0.5s ease;
+  z-index: -1;
+}
+
+.project-info {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 28px;
+  z-index: 2;
+}
+
+.project-number {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.project-name {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  transition: transform 0.4s ease;
+}
+
+/* Hidden details */
+.project-details {
+  max-width: 720px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition:
+    max-height 0.5s ease,
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+.project-details p {
+  margin: 18px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* Technology tags */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tech span {
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  letter-spacing: 0.4px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+}
+
+/* ================================
+   HOVER EFFECT
+================================ */
+
+.project-card:hover .project-bg {
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.80) 60%,
+    rgba(0, 0, 0, 0.30) 100%
+  );
+}
+
+.project-card:hover .project-details {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover .project-name {
+  transform: translateY(-5px);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.large {
+    grid-column: span 1;
+  }
+
+  .project-card,
+  .project-card.large {
+    min-height: 400px;
+  }
+
+  /*
+     On mobile there is no hover,
+     so show the project details by default.
+  */
+  .project-details {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-name {
+    font-size: 1.7rem;
+  }
+
+  .project-info {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+}
   </style>
 </head>
 
@@ -1335,38 +1522,101 @@ with an interest in developing reliable software solutions.
 </section>
 
   <!-- Work / Projects -->
-  <section id="work">
-    <!-- <p class="section-label">Selected Work</p> -->
-    <div class="work-header reveal">
-      <h2 class="work-heading"><em>Projects</em></h2>
-      <!-- <span class="work-count">05 Featured</span> -->
-    </div>
-    <div class="projects-grid">
-      <div class="project-card large reveal">
-        <div class="project-bg proj-1"></div>
-        <div class="project-overlay"></div>
-        <div class="project-info">
-          <h3 class="project-name">Tactile Watch</h3>
-        </div>
-      </div>
+ <!-- Work / Projects -->
+<section id="work">
+  <div class="work-header reveal">
+    <h2 class="work-heading"><em>Projects</em></h2>
+  </div>
 
-      <div class="project-card reveal">
-        <div class="project-bg proj-2"></div>
-        <div class="project-overlay"></div>
-        <div class="project-info">
-          <h3 class="project-name">Jarvis AI-Voice Controlled Personal Assistant </h3>
-        </div>
-      </div>
+  <div class="projects-grid">
 
-      <div class="project-card reveal">
-        <div class="project-bg proj-3"></div>
-        <div class="project-overlay"></div>
-        <div class="project-info">
-          <h3 class="project-name">Face Recognition Attendance System</h3>
+    <!-- Tactile Watch -->
+    <div class="project-card large reveal">
+      <div class="project-bg proj-1"></div>
+      <div class="project-overlay"></div>
+
+      <div class="project-info">
+        <span class="project-number">01</span>
+        <h3 class="project-name">Tactile Watch</h3>
+
+        <div class="project-details">
+          <p>
+            A wearable assistive system designed to provide time and alert
+            information through vibration feedback. Developed as part of an
+            internship project using machine learning and mobile application
+            technologies.
+          </p>
+
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Edge Impulse</span>
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>ESP32</span>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+
+
+    <!-- Jarvis AI -->
+    <div class="project-card reveal">
+      <div class="project-bg proj-2"></div>
+      <div class="project-overlay"></div>
+
+      <div class="project-info">
+        <span class="project-number">02</span>
+        <h3 class="project-name">Jarvis AI</h3>
+
+        <div class="project-details">
+          <p>
+            A voice-controlled personal assistant capable of processing
+            voice commands using speech recognition, natural language
+            processing, and machine learning-based intent classification.
+          </p>
+
+          <div class="project-tech">
+            <span>Python</span>
+            <span>NLTK</span>
+            <span>TensorFlow/Keras</span>
+            <span>Vosk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Face Recognition -->
+    <div class="project-card reveal">
+      <div class="project-bg proj-3"></div>
+      <div class="project-overlay"></div>
+
+      <div class="project-info">
+        <span class="project-number">03</span>
+        <h3 class="project-name">Face Recognition Attendance System</h3>
+
+        <div class="project-details">
+          <p>
+            A Python-based attendance application using facial recognition
+            for student identification and attendance management, with a
+            Flask web interface and database integration.
+          </p>
+
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Flask</span>
+            <span>OpenCV</span>
+            <span>SQLite</span>
+            <span>Docker</span>
+            <span>Jenkins</span>
+            <span>AWS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- Services -->
   <section id="services">
@@ -1535,7 +1785,7 @@ with an interest in developing reliable software solutions.
   <section id="contact">
     <div class="contact-glow"></div>
     <p class="contact-label">Let's Work Together</p>
-    <h2 class="contact-heading reveal">Actively Seeking oppurtunities in <br /><em>Software Development, Python Developer, Devops, </em><br /></h2>
+    <h2 class="contact-heading reveal">Actively Seeking oppurtunities in <br /><em>Software Development, Python Developer, Devops </em><br /></h2>
     <p class="contact-sub reveal">Have a project in mind? I'd love to hear about it. Drop me a line and let's explore
       what we can create together.</p>
     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bdevops2012@gmail.com" target="_blank"
